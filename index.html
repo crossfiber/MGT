@@ -51,30 +51,30 @@
   --accent-dk:#B8124C;
   --accent-on-dark:#FF6F9C;
   --indigo:#2E3192;       /* logo indigo */
-  --night:#14163F;        /* indigo-derived dark */
-  --night-2:#1D2056;
-  --field:#F5F6FA;
+  --night:#14163F;        /* indigo-derived dark, footer only */
+  --field:#F3F4F8;
+  --tint:#E9EBF5;
   --plate:#FFFFFF;
   --ink:#15172E;
-  --muted:#5A5D78;
+  --muted:#565A74;
   --on-dark:#EEF0FA;
   --on-dark-muted:#B8BAD6;
-  --line:rgba(21,23,46,.10);
-  --nav-h:76px;
-  --nav-h-sm:64px;
-  --wrap:1240px;
+  --line:rgba(21,23,46,.12);
+  --nav-h:72px;
+  --nav-h-sm:60px;
+  --wrap:1200px;
   --pad:32px;
-  --r:4px;
+  --r:2px;
   --display:"Archivo",system-ui,sans-serif;
   --body:"Public Sans",system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:calc(var(--nav-h) + 20px);-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--field);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+body{margin:0;background:var(--plate);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
 img,video{display:block;max-width:100%}
 button{font-family:inherit}
 a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-stretch:118%;font-weight:850;line-height:1.08;letter-spacing:-.01em;margin:0}
+h1,h2,h3{font-family:var(--display);font-stretch:80%;font-weight:800;line-height:1.02;letter-spacing:0;margin:0}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
 .num{font-variant-numeric:tabular-nums}
@@ -83,194 +83,172 @@ p{margin:0}
 .skip-link{position:absolute;left:-9999px;top:0;z-index:9999;background:var(--night);color:#fff;padding:12px 18px;font-weight:700;text-decoration:none}
 .skip-link:focus{left:0}
 :focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
-.on-dark :focus-visible{outline-color:var(--accent-on-dark)}
+.site-foot :focus-visible{outline-color:var(--accent-on-dark)}
 main:focus{outline:none}
 
-/* buttons: 4px rectangles, pressable only */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:var(--r);font-family:var(--display);font-stretch:112%;font-weight:750;font-size:1rem;text-decoration:none;white-space:nowrap;border:2px solid transparent;transition:background-color .18s,transform .18s,box-shadow .18s}
-.btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(217,26,93,.22)}
-.btn-primary:hover{background:var(--accent-dk);transform:translateY(-2px);box-shadow:0 10px 24px rgba(217,26,93,.28)}
-.btn-ghost{border-color:var(--indigo);color:var(--indigo);background:transparent}
-.btn-ghost:hover{background:rgba(46,49,146,.06);transform:translateY(-2px)}
-.btn-light{background:#fff;color:var(--night)}
-.btn-light:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+/* buttons: flat 2px rectangles, pressable only */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:var(--r);font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;white-space:nowrap;border:2px solid transparent;transition:background-color .15s,color .15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dk)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+a[href^="tel:"],a[href^="sms:"]{white-space:nowrap}
 .tlink{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px}
-.on-dark .tlink{color:var(--accent-on-dark)}
 
 /* nav */
-.site-nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 14px rgba(21,23,46,.06);z-index:100}
+.site-nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);background:#fff;border-bottom:1px solid var(--line);z-index:210}
 .nav-inner{height:100%;display:flex;align-items:center;gap:28px}
 .brand{display:flex;align-items:center;flex:0 0 auto}
-.brand img{height:52px;width:auto}
+.brand img{height:50px;width:auto}
 .site-nav nav{flex:1 1 auto}
 .nav-links{display:flex;gap:26px;margin:0 0 0 12px;padding:0;list-style:none}
 .nav-links a{text-decoration:none;font-weight:600;font-size:.97rem;white-space:nowrap;padding:8px 0;border-bottom:2px solid transparent}
-.nav-links a:hover{border-bottom-color:var(--indigo);color:var(--indigo)}
+.nav-links a:hover{border-bottom-color:var(--ink)}
 .nav-cta{display:flex;align-items:center;gap:20px}
-.nav-phone{font-family:var(--display);font-stretch:110%;font-weight:800;color:var(--accent);text-decoration:none;white-space:nowrap}
+.nav-phone{font-weight:700;color:var(--accent);text-decoration:none;white-space:nowrap}
 .nav-phone:hover{text-decoration:underline}
-.hamburger{display:none;margin-left:auto;width:48px;height:48px;border:0;background:transparent;border-radius:var(--r);cursor:pointer;position:relative}
-.hamburger span,.hamburger span::before,.hamburger span::after{position:absolute;left:12px;width:24px;height:3px;background:var(--night);border-radius:2px;content:""}
-.hamburger span{top:22px}
-.hamburger span::before{top:-8px;left:0}
-.hamburger span::after{top:8px;left:0}
+.menu-btn{display:none;margin-left:auto;min-width:88px;min-height:44px;padding:0 16px;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:var(--r);font-weight:700;font-size:.95rem;cursor:pointer}
+.menu-btn[aria-expanded="true"]{background:var(--ink);color:#fff}
 
-/* drawer */
-.nav-overlay{position:fixed;inset:0;background:rgba(20,22,63,.55);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:190}
-.nav-overlay.open{opacity:1;visibility:visible}
-.drawer{position:fixed;top:0;right:0;visibility:hidden;width:min(88vw,380px);height:100dvh;background:var(--night);color:var(--on-dark);z-index:200;transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.7,.2,1),visibility .3s;display:flex;flex-direction:column;padding:max(20px,env(safe-area-inset-top)) 28px max(24px,env(safe-area-inset-bottom))}
-.drawer.open{transform:none;visibility:visible}
-.drawer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.drawer-top p{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:1.05rem;color:var(--on-dark-muted)}
-.drawer-close{width:48px;height:48px;border:0;background:transparent;color:var(--on-dark);font-size:2rem;line-height:1;cursor:pointer;border-radius:var(--r)}
-.drawer ul{list-style:none;margin:0;padding:0}
-.drawer li a{display:block;padding:12px 0;font-family:var(--display);font-stretch:118%;font-weight:800;font-size:1.6rem;text-decoration:none;color:var(--on-dark)}
-.drawer li a:hover{color:var(--accent-on-dark)}
-.drawer-foot{margin-top:auto;display:grid;gap:12px}
-.drawer-foot .btn{width:100%}
-.drawer-foot small{color:var(--on-dark-muted);font-size:.88rem}
-body.drawer-open{overflow:hidden}
-body.drawer-open .hamburger{visibility:hidden}
+/* menu sheet: drops from under the bar, page stays visible behind */
+.menu-scrim{position:fixed;inset:var(--nav-h-sm) 0 0 0;background:rgba(21,23,46,.45);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:190}
+.menu-scrim.open{opacity:1;visibility:visible}
+.menu-sheet{position:fixed;top:var(--nav-h-sm);left:0;right:0;bottom:0;display:flex;flex-direction:column;overflow-y:auto;background:#fff;border-bottom:1px solid var(--line);z-index:200;visibility:hidden;opacity:0;transform:translateY(-12px);transition:opacity .2s,transform .2s,visibility .2s;padding:4px var(--pad) max(20px,env(safe-area-inset-bottom))}
+.menu-sheet.open{visibility:visible;opacity:1;transform:none}
+.menu-sheet ul{list-style:none;margin:0;padding:0}
+.menu-sheet li+li{border-top:1px solid var(--line)}
+.menu-sheet li a{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:15px 0;text-decoration:none}
+.menu-sheet .ml{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.75rem;line-height:1.1}
+.menu-sheet .md{font-size:.86rem;color:var(--muted);text-align:right}
+.menu-sheet li a:hover .ml{color:var(--indigo)}
+.menu-next{margin:20px 0 0;padding:18px 18px 16px;background:var(--indigo);color:#fff;border-radius:var(--r)}
+.menu-next .nl{font-size:.86rem;color:#D5D7EE}
+.menu-next .nc{display:block;font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.9rem;line-height:1.05;margin:2px 0 4px}
+.menu-next .nm{font-weight:600}
+.menu-next .nd{margin-top:6px;font-size:.86rem;color:#D5D7EE}
+.menu-foot{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:20px}
+.menu-foot small{grid-column:1/-1;color:var(--muted);font-size:.86rem;text-align:center}
+body.menu-open{overflow:hidden}
 
 /* hero */
-.hero{padding:calc(var(--nav-h) + 56px) 0 0;background:var(--plate)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,12fr);gap:56px;align-items:center}
-.hero-copy{padding-bottom:104px}
-.hero h1{font-size:clamp(2.3rem,3.6vw,3.3rem);color:var(--ink)}
-.hero h1 em{font-style:normal;color:var(--indigo)}
-.hero-sub{margin-top:22px;font-size:1.1rem;color:var(--muted);max-width:34em}
-.hero-ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
-.hero-media{position:relative;margin-bottom:40px}
-.hero-media .plate{background:var(--night)}
+.hero{padding:calc(var(--nav-h) + 56px) 0 72px;background:var(--plate)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,4.2vw,3.9rem);color:var(--ink)}
+.hero-sub{margin-top:22px;font-size:1.1rem;color:var(--muted);max-width:32em}
+.hero-ctas{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.hero-record{margin-top:28px;font-size:.95rem;color:var(--muted);max-width:32em}
+.hero-record b{color:var(--ink)}
+.hero-media{margin:0}
 .hero-media img{width:100%;height:auto;aspect-ratio:16/9}
-.hero-media figcaption{font-size:.84rem;color:var(--muted);margin-top:10px}
-.ticket{position:absolute;left:-40px;bottom:-128px;width:min(360px,80%);background:var(--night);color:var(--on-dark);padding:22px 24px;border-radius:var(--r);box-shadow:0 24px 50px rgba(20,22,63,.32);z-index:2}
-.ticket h2{font-size:1.02rem;font-stretch:112%;color:var(--on-dark-muted);font-weight:700;letter-spacing:0}
-.ticket .t-course{font-family:var(--display);font-stretch:120%;font-weight:900;font-size:1.7rem;line-height:1.1;margin-top:6px;color:#fff}
-.ticket .t-meta{margin-top:6px;font-weight:600}
-.ticket .t-note{margin-top:12px;font-size:.9rem;color:var(--on-dark-muted)}
-.ticket .tlink{display:inline-block;margin-top:12px}
+.next-strip{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:14px 18px;background:var(--field);border-radius:0 0 var(--r) var(--r)}
+.next-strip .lbl{font-size:.9rem;color:var(--muted)}
+.next-strip .crs{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.3rem}
+.next-strip .meta{font-weight:600}
+.next-strip .tlink{margin-left:auto;white-space:nowrap}
+.next-strip .meta{white-space:nowrap}
 
-/* record line */
-.record{padding:128px 0 72px;background:var(--field)}
-.record-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:end}
-.record p.big{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:clamp(1.45rem,2.4vw,2.05rem);line-height:1.3;color:var(--ink)}
-.record p.big strong{color:var(--indigo);font-weight:900}
-.sidenote{font-size:.86rem;color:var(--muted);line-height:1.5;border-left:3px solid rgba(46,49,146,.25);padding-left:14px}
-.on-dark .sidenote{color:var(--on-dark-muted);border-left-color:rgba(184,186,214,.35)}
-
-/* winners board */
-.winners{background:var(--night);color:var(--on-dark);padding:104px 0 112px}
-.winners-head{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:end;margin-bottom:44px}
-.winners h2{font-size:clamp(2rem,3.4vw,3rem);color:#fff}
-.winners-head p.lede{margin-top:14px;color:var(--on-dark-muted);max-width:36em}
-.board{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:start}
+/* winners board: a real leaderboard, light */
+.winners{background:var(--field);padding:96px 0}
+.winners h2{font-size:clamp(2.2rem,3.6vw,3.2rem)}
+.winners .lede{margin-top:12px;color:var(--muted);max-width:40em}
+.board{margin-top:40px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px;align-items:start}
 .stage-col{position:sticky;top:calc(var(--nav-h) + 24px)}
 .stage{position:relative;background:#000;aspect-ratio:16/9}
 .stage img,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.stage video{opacity:0;transition:opacity .25s}
+.stage video{opacity:0;transition:opacity .2s}
 .stage.playing video{opacity:1}
-.stage-play{position:absolute;right:16px;bottom:16px;z-index:3}
+.stage-play{position:absolute;right:14px;bottom:14px;z-index:3;background:#fff;color:var(--ink)}
+.stage-play:hover{background:var(--tint)}
 .stage.playing .stage-play{display:none}
-.stage-cap{margin-top:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--on-dark-muted);font-size:.92rem}
-.stage-cap strong{color:#fff;font-family:var(--display);font-stretch:115%;font-size:1.15rem}
-.lb{width:100%}
-.lb-head,.lb-row{display:grid;grid-template-columns:minmax(0,1fr) 56px 72px;gap:12px;align-items:center}
-.lb-head{padding:0 14px 10px;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--on-dark-muted);font-weight:700}
+.stage-cap{margin-top:12px;color:var(--muted);font-size:.92rem}
+.stage-cap strong{color:var(--ink)}
+.lb{background:var(--plate);border:1px solid var(--line);border-radius:var(--r)}
+.lb-head,.lb-row{display:grid;grid-template-columns:minmax(0,1fr) 64px 76px;gap:12px;align-items:center;padding:0 16px}
+.lb-head{min-height:44px;background:var(--indigo);color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r) var(--r) 0 0}
 .lb-head span:nth-child(n+2),.lb-row .sc,.lb-row .pz{text-align:right}
-.lb-row{width:100%;text-align:left;background:transparent;border:0;color:inherit;font:inherit;padding:14px;border-radius:var(--r);cursor:pointer;transition:background-color .15s}
-.lb-row:nth-child(odd){background:rgba(255,255,255,.035)}
-.lb-row:hover{background:rgba(255,255,255,.08)}
-.lb-row[aria-pressed="true"]{background:var(--night-2);box-shadow:inset 4px 0 0 var(--accent-on-dark)}
-.lb-row .who{display:block;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:1.08rem;color:#fff;line-height:1.2}
-.lb-row .where{display:block;font-size:.86rem;color:var(--on-dark-muted);margin-top:3px}
-.lb-row .sc{font-family:var(--display);font-weight:900;font-size:1.5rem;color:#fff}
-.lb-row .pz{font-weight:600;color:var(--on-dark)}
-.winners-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
+.lb-row{width:100%;min-height:68px;text-align:left;background:transparent;border:0;border-top:1px solid var(--line);color:inherit;font:inherit;cursor:pointer}
+.lb-row:first-of-type{border-top:0}
+.lb-row:hover{background:var(--field)}
+.lb-row[aria-pressed="true"]{background:var(--tint)}
+.lb-row .who{display:block;font-weight:700;font-size:1.02rem;line-height:1.25}
+.lb-row .where{display:block;font-size:.86rem;color:var(--muted);margin-top:2px}
+.lb-row .sc{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:1.9rem;line-height:1}
+.lb-row[aria-pressed="true"] .sc,.lb-row[aria-pressed="true"] .who{color:var(--indigo)}
+.lb-row .pz{font-weight:600}
+.lb-note{margin-top:12px;font-size:.86rem;color:var(--muted)}
+.winners-foot{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
 
 /* how to play */
-.how{padding:112px 0;background:var(--plate)}
-.how-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center}
-.how-photo img{width:100%;height:auto;aspect-ratio:16/9}
-.how-photo figcaption{font-size:.84rem;color:var(--muted);margin-top:10px}
-.how h2{font-size:clamp(2rem,3.2vw,2.8rem)}
-.steps{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:26px}
-.steps li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px}
-.steps .n{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:1.9rem;line-height:1;color:var(--indigo)}
-.steps h3{font-size:1.25rem;font-stretch:112%;margin-bottom:6px}
+.how{padding:104px 0;background:var(--plate)}
+.how-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:center}
+.how h2{font-size:clamp(2.2rem,3.6vw,3.2rem)}
+.steps{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:24px}
+.steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px}
+.steps .n{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:2.2rem;line-height:.95;color:var(--indigo)}
+.steps h3{font-family:var(--body);font-weight:700;font-size:1.1rem;line-height:1.35;margin-bottom:4px}
 .steps p{color:var(--muted)}
 .steps a{color:var(--accent);font-weight:700}
+.how-photo img{width:100%;height:auto;aspect-ratio:16/9}
+.how-photo figcaption,.levels-photo figcaption{font-size:.86rem;color:var(--muted);margin-top:10px}
 
 /* schedule */
-.schedule{padding:112px 0;background:var(--field)}
-.sched-head{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:end;margin-bottom:36px}
-.schedule h2{font-size:clamp(2rem,3.2vw,2.8rem)}
-.schedule .lede{margin-top:12px;color:var(--muted);max-width:36em}
-.sched{width:100%;border-collapse:collapse;background:var(--plate)}
+.schedule{padding:104px 0;background:var(--field)}
+.schedule h2{font-size:clamp(2.2rem,3.6vw,3.2rem)}
+.schedule .lede{margin-top:12px;color:var(--muted);max-width:40em}
+.sched{width:100%;margin-top:36px;border-collapse:collapse;background:var(--plate);border:1px solid var(--line)}
 .sched caption{text-align:left;padding:0 0 10px;color:var(--muted);font-size:.9rem}
-.sched th{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:left;padding:14px 20px;border-bottom:1px solid var(--line);font-weight:700}
-.sched td{padding:15px 20px;border-bottom:1px solid var(--line);vertical-align:middle}
-.sched tr:last-child td{border-bottom:0}
-.sched .d{font-weight:700;white-space:nowrap}
-.sched .c{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:1.06rem}
+.sched th{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;padding:13px 20px;background:var(--indigo);color:#fff;font-weight:700}
+.sched td{padding:14px 20px;border-top:1px solid var(--line);vertical-align:middle}
+.sched .d{font-weight:600;white-space:nowrap}
+.sched .c{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.2rem}
 .sched .c small{display:block;font-family:var(--body);font-weight:500;font-size:.84rem;color:var(--muted)}
 .sched .f{text-align:right;font-weight:700;white-space:nowrap}
-.sched .f.hi{color:var(--indigo)}
 .sched th.fh{text-align:right}
-.sched-foot{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.sched-note{margin-top:12px;font-size:.86rem;color:var(--muted)}
+.sched-foot{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 
-/* levels band */
-.levels{position:relative;background:var(--night);color:var(--on-dark);overflow:hidden}
-.levels-media{position:absolute;inset:0}
-.levels-media img{width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:.6}
-.levels-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,22,63,.96) 0%,rgba(20,22,63,.82) 45%,rgba(20,22,63,.35) 100%)}
-.levels .wrap{position:relative;padding-top:104px;padding-bottom:104px}
-.levels-copy{max-width:560px}
-.levels h2{font-size:clamp(2rem,3.4vw,3rem);color:#fff}
-.levels p{margin-top:18px;color:var(--on-dark)}
-.levels .btn{margin-top:28px}
+/* levels */
+.levels{padding:104px 0;background:var(--plate)}
+.levels-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center}
+.levels h2{font-size:clamp(2.2rem,3.6vw,3.2rem)}
+.levels p{margin-top:16px;color:var(--muted);max-width:34em}
+.levels .btn{margin-top:26px}
+.levels-photo img{width:100%;height:auto;aspect-ratio:16/9}
 
-/* still deciding */
-.close{padding:112px 0 56px;background:var(--plate)}
-.close-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:64px}
-.close h2{font-size:clamp(2rem,3.2vw,2.8rem)}
-.qa{display:grid;gap:30px}
-.qa h3{font-size:1.3rem;font-stretch:112%;margin-bottom:8px}
-.qa p{color:var(--muted);max-width:40em}
-
-/* contact */
-.contact{padding:56px 0 112px;background:var(--plate)}
-.contact-card{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:0;background:var(--field);border-radius:var(--r);overflow:hidden}
-.contact-main{padding:48px}
-.contact-main h2{font-size:clamp(1.8rem,2.8vw,2.4rem)}
-.contact-main .big-phone{display:inline-block;margin-top:18px;font-family:var(--display);font-stretch:118%;font-weight:900;font-size:clamp(2rem,4vw,3rem);color:var(--accent);text-decoration:none;line-height:1.1}
-.contact-main .big-phone:hover{text-decoration:underline}
-.contact-main p{margin-top:12px;color:var(--muted);max-width:32em}
-.contact-main .hero-ctas{margin-top:24px}
-.contact-side{padding:48px;background:var(--night);color:var(--on-dark)}
-.contact-side h3{font-size:1.1rem;font-stretch:112%;color:#fff;margin-bottom:6px}
-.contact-side address{font-style:normal;color:var(--on-dark-muted);line-height:1.9;overflow-wrap:anywhere}
-.contact-side address a{color:var(--accent-on-dark)}
-.contact-side .blk+.blk{margin-top:26px}
+/* still deciding + contact share one band */
+.close{padding:96px 0 104px;background:var(--field)}
+.close-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:start}
+.close h2{font-size:clamp(2.2rem,3.6vw,3.2rem)}
+.qa{margin-top:28px;display:grid;gap:26px}
+.qa h3{font-family:var(--body);font-weight:700;font-size:1.1rem;line-height:1.35;margin-bottom:6px}
+.qa p{color:var(--muted);max-width:38em}
+.contact{background:var(--plate);border:1px solid var(--line);border-radius:var(--r);padding:36px}
+.contact h2{font-size:1.9rem}
+.contact .big-phone{display:inline-block;margin-top:12px;font-family:var(--display);font-stretch:78%;font-weight:800;font-size:clamp(2.4rem,4vw,3.2rem);color:var(--accent);text-decoration:none;line-height:1}
+.contact .big-phone:hover{text-decoration:underline}
+.contact p{margin-top:12px;color:var(--muted)}
+.contact .hero-ctas{margin-top:20px}
+.contact address{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-style:normal;color:var(--muted);font-size:.95rem;line-height:1.7;overflow-wrap:anywhere}
+.contact address strong{color:var(--ink)}
+.contact address a{color:var(--accent);font-weight:600}
 
 /* footer */
-.site-foot{background:var(--night);color:var(--on-dark-muted);padding:72px 0 0}
+.site-foot{background:var(--night);color:var(--on-dark-muted);padding:64px 0 0}
 .foot-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,4fr);gap:48px}
 .foot-logo{display:inline-block;background:#fff;padding:10px 14px;border-radius:var(--r)}
 .foot-logo img{height:44px;width:auto}
 .foot-brand p{margin-top:16px;max-width:26em;font-size:.95rem}
-.site-foot h3{font-size:1rem;font-stretch:112%;color:#fff;margin-bottom:12px}
-.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.site-foot h3{font-family:var(--body);font-weight:700;font-size:1rem;color:#fff;margin-bottom:8px}
+.site-foot ul{list-style:none;margin:0;padding:0}
 .site-foot li a{display:inline-block;padding:10px 0}
-.foot-bottom nav a{display:inline-block;padding:11px 0}
-.credit{min-height:44px}
 .site-foot a{color:var(--on-dark);text-decoration:none}
 .site-foot a:hover{color:var(--accent-on-dark);text-decoration:underline}
 .site-foot address{font-style:normal;line-height:2.4;font-size:.95rem;overflow-wrap:anywhere}
 .site-foot address a{color:var(--accent-on-dark)}
-.foot-bottom{margin-top:56px;border-top:1px solid rgba(184,186,214,.14);padding:22px 0 max(22px,env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;font-size:.86rem}
+.foot-bottom{margin-top:48px;border-top:1px solid rgba(184,186,214,.14);padding:20px 0 max(22px,env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;font-size:.86rem}
 .foot-bottom nav{display:flex;gap:18px;flex-wrap:wrap}
-.credit{display:inline-flex;align-items:center;gap:8px;color:var(--on-dark-muted)!important;text-decoration:none!important}
+.foot-bottom nav a{display:inline-block;padding:11px 0}
+.credit{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--on-dark-muted)!important;text-decoration:none!important}
 .credit img{height:20px;width:auto}
 .demo-note{flex-basis:100%;color:var(--on-dark-muted);font-size:.82rem}
 
@@ -285,18 +263,11 @@ body.drawer-open .hamburger{visibility:hidden}
   .site-nav{height:var(--nav-h-sm)}
   .brand img{height:40px}
   .nav-links,.nav-cta{display:none}
-  .hamburger{display:block}
-  .hero{padding-top:calc(var(--nav-h-sm) + 32px)}
-  .hero-grid{grid-template-columns:minmax(0,1fr);gap:0}
-  .hero-copy{padding-bottom:32px}
-  .hero-media{display:flex;flex-direction:column}
-  .ticket{position:relative;left:auto;bottom:auto;width:100%;order:-1;margin-bottom:20px;box-shadow:none}
-  .record{padding:56px 0}
-  .record-grid,.winners-head,.sched-head{grid-template-columns:minmax(0,1fr);gap:18px}
-  .board{grid-template-columns:minmax(0,1fr);gap:24px}
-  .how-grid,.close-grid{grid-template-columns:minmax(0,1fr);gap:36px}
-  .how-photo{order:2}
-  .contact-card{grid-template-columns:minmax(0,1fr)}
+  .menu-btn{display:block}
+  .hero{padding:calc(var(--nav-h-sm) + 28px) 0 56px}
+  .hero-grid,.board,.how-grid,.levels-grid,.close-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .stage-col{position:static}
+  .how-photo,.levels-photo{order:2}
   .foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .foot-brand{grid-column:1/-1}
 }
@@ -304,54 +275,44 @@ body.drawer-open .hamburger{visibility:hidden}
 @media (max-width:640px){
   :root{--pad:20px}
   body{font-size:16px}
-  .hero h1{font-size:2.15rem}
+  .hero h1{font-size:2.7rem}
   .hero-sub{font-size:1rem;margin-top:16px}
-  .hero-ctas{margin-top:22px}
   .hero-ctas .btn{flex:1 1 100%}
-  .hero-media img{height:220px;width:auto;max-width:100%;aspect-ratio:auto;margin:0 auto}
-  .hero-media .plate{display:flex;justify-content:center}
-  .ticket{padding:18px 20px}
-  .ticket .t-course{font-size:1.45rem}
-  .winners,.how,.schedule{padding:64px 0}
-  .winners-head{margin-bottom:24px}
-  .board{margin:0 calc(var(--pad) * -1)}
-  .stage-cap,.winners-lb{padding:0 var(--pad)}
-  .lb-head{display:none}
-  .lb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
-  .lb-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"who sc" "pz pz";gap:2px 8px;padding:12px;background:rgba(255,255,255,.05)!important}
-  .lb-row[aria-pressed="true"]{background:var(--night-2)!important}
-  .lb-row .wh{grid-area:who;min-width:0}
-  .lb-row .sc{grid-area:sc;font-size:1.25rem}
-  .lb-row .pz{grid-area:pz;text-align:left;font-size:.86rem;color:var(--on-dark-muted)}
-  .lb-row .who{font-size:.98rem}
-  .lb-row .where{font-size:.78rem}
+  .hero-record{margin-top:20px;font-size:.9rem}
+  .hero-media{margin:0 calc(var(--pad) * -1)}
+  .next-strip{border-radius:0;padding:14px var(--pad)}
+  .next-strip .tlink{margin-left:0}
+  .winners,.how,.schedule,.levels{padding:64px 0}
+  .board{margin-top:28px;gap:20px}
+  .stage-col{margin:0 calc(var(--pad) * -1)}
+  .stage-cap{padding:0 var(--pad)}
+  .lb-head,.lb-row{grid-template-columns:minmax(0,1fr) 48px 64px;padding:0 12px;gap:8px}
+  .lb-row{min-height:62px}
+  .lb-row .sc{font-size:1.6rem}
+  .lb-row .who{font-size:.97rem}
+  .lb-row .where{font-size:.8rem}
   .winners-foot .btn{flex:1 1 100%}
-  .steps li{grid-template-columns:44px minmax(0,1fr);gap:12px}
-  .steps .n{font-size:1.5rem}
-  .stage-col{position:static}
-  .hero-media{margin-bottom:0}
-  .sched caption{display:block;padding:0 0 10px}
+  .steps li{grid-template-columns:40px minmax(0,1fr);gap:12px}
+  .steps .n{font-size:1.9rem}
   .sched thead{display:none}
+  .sched{border:0;background:transparent}
+  .sched caption{display:block;padding:0 0 10px}
+  .sched tbody{background:var(--plate);border:1px solid var(--line);border-radius:var(--r)}
   .sched,.sched tbody,.sched tr,.sched td{display:block}
-  .sched tr{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"d f" "c c";padding:14px 16px;border-bottom:1px solid var(--line);gap:2px 12px}
-  .sched tr:last-child{border-bottom:0}
+  .sched tr{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"d f" "c c";padding:12px 16px;border-top:1px solid var(--line);gap:2px 12px}
+  .sched tr:first-child{border-top:0}
   .sched td{padding:0;border:0}
   .sched .d{grid-area:d;font-size:.92rem}
   .sched .c{grid-area:c}
   .sched .f{grid-area:f}
-  .sched-foot .btn{flex:1 1 100%}
-  .levels .wrap{padding-top:72px;padding-bottom:72px}
-  .levels-media::after{background:rgba(20,22,63,.82)}
-  .levels .btn{width:100%}
-  .close{padding:64px 0 32px}
-  .contact{padding:32px 0 64px}
-  .contact-main,.contact-side{padding:28px 22px}
-  .contact-main .hero-ctas .btn{flex:1 1 100%}
+  .sched-foot .btn,.levels .btn{flex:1 1 100%;width:100%}
+  .close{padding:64px 0}
+  .contact{padding:24px 20px}
+  .contact .hero-ctas .btn{flex:1 1 100%}
   .foot-bottom{justify-content:flex-start}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
-  .btn:hover{transform:none}
 }
 </style>
 </head>
@@ -374,111 +335,99 @@ body.drawer-open .hamburger{visibility:hidden}
       <a class="nav-phone num" href="tel:+17273938531">(727) 393-8531</a>
       <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer"><span></span></button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuSheet">Menu</button>
   </div>
 </header>
 
-<div class="nav-overlay" id="navOverlay"></div>
-<aside class="drawer on-dark" id="navDrawer" aria-hidden="true" aria-label="Menu">
-  <div class="drawer-top">
-    <p>Moonlight Golf Tour</p>
-    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+<div class="menu-scrim" id="menuScrim"></div>
+<div class="menu-sheet" id="menuSheet" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <ul>
+      <li><a href="#winners"><span class="ml">Winners</span><span class="md">Last six, on film</span></a></li>
+      <li><a href="#how"><span class="ml">How to play</span><span class="md">Two texts and cash</span></a></li>
+      <li><a href="#schedule"><span class="ml">Schedule</span><span class="md">Sept 29 to Oct 29</span></a></li>
+      <li><a href="#levels"><span class="ml">Levels 2 &amp; 3</span><span class="md">NEXT! stages</span></a></li>
+      <li><a href="https://awc.ogatour.org/O_RecentResults.php"><span class="ml">Full results</span><span class="md">On OGATOUR.org</span></a></li>
+    </ul>
+  </nav>
+  <div class="menu-next num">
+    <p class="nl">Next event</p>
+    <p class="nc">Eagle Dunes</p>
+    <p class="nm">Tue Sept 29, 8:30am &middot; $100 entry</p>
+    <p class="nd">Registration closes 48 hours before the first tee time.</p>
   </div>
-  <ul>
-    <li><a href="#winners">Winners</a></li>
-    <li><a href="#how">How to play</a></li>
-    <li><a href="#schedule">Schedule</a></li>
-    <li><a href="#levels">Levels 2 &amp; 3</a></li>
-    <li><a href="https://awc.ogatour.org/O_RecentResults.php">Results</a></li>
-  </ul>
-  <div class="drawer-foot">
-    <a class="btn btn-light num" href="tel:+17273938531">Call (727) 393-8531</a>
+  <div class="menu-foot">
+    <a class="btn btn-ghost num" href="tel:+17273938531">Call</a>
     <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
-    <small>Tee times by text, 7 to 8pm the night before.</small>
+    <small>Tee times: text 7 to 8pm the night before</small>
   </div>
-</aside>
+</div>
 
 <main id="main" tabindex="-1">
 
 <section class="hero" id="top" aria-labelledby="h1">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1 id="h1">Open tournament golf in Central Florida, <em>every week since 1992</em></h1>
+      <h1 id="h1">Open tournament golf in Central Florida, every week since 1992</h1>
       <p class="hero-sub">The Moonlight Golf Tour runs stroke-play events for pros and scratch amateurs at Legends, Wekiva, Stoneybrook West, West Orange, Eagle Dunes and Bartow. Entries from $100, cash at the course, and your score goes on the board next to everyone else's.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
-        <a class="btn btn-ghost" href="#schedule">See this month's events</a>
+        <a class="btn btn-ghost" href="#schedule">See the schedule</a>
       </div>
+      <p class="hero-record num">So far in 2026: <b>65 events</b>, <b>882 starts</b>, and players from at least 21 countries, counted from the tour's own results.</p>
     </div>
-    <div class="hero-media">
-      <figure class="plate" style="margin:0">
-        <img src="assets/legends-clermont-tee-2026-09-09.jpg" width="1600" height="900" fetchpriority="high" alt="A Moonlight Golf Tour player holding his finish on the tee at Legends in Clermont, the fairway running down toward the lake">
-      </figure>
-      <div class="ticket on-dark">
-        <h2>Next event</h2>
-        <p class="t-course">Eagle Dunes</p>
-        <p class="t-meta num">Tue Sept 29, 8:30am &middot; $100 entry</p>
-        <p class="t-note">Registration closes 48 hours before the first tee time.</p>
+    <figure class="hero-media">
+      <img src="assets/legends-clermont-tee-2026-09-09.jpg" width="1600" height="900" fetchpriority="high" alt="A Moonlight Golf Tour player holding his finish on the tee at Legends in Clermont, the fairway running down toward the lake">
+      <div class="next-strip num">
+        <span class="lbl">Next event</span>
+        <span class="crs">Eagle Dunes</span>
+        <span class="meta">Tue Sept 29, 8:30am, $100</span>
         <a class="tlink" href="sms:+17273938531">Text to enter</a>
       </div>
-    </div>
+    </figure>
   </div>
 </section>
 
-<section class="record" aria-label="The 2026 season so far">
-  <div class="wrap record-grid">
-    <p class="big num">This season alone: <strong>65 events</strong>, <strong>882 starts</strong>, and players from <strong>at least 21 countries</strong> on the leaderboard.</p>
-    <p class="sidenote">Counted from the tour's own results page, January 1 to September 21, 2026.</p>
-  </div>
-</section>
-
-<section class="winners on-dark" id="winners" aria-labelledby="winners-h">
+<section class="winners" id="winners" aria-labelledby="winners-h">
   <div class="wrap">
-    <div class="winners-head">
-      <div>
-        <h2 id="winners-h">The last six winners, on the tee</h2>
-        <p class="lede">The tour films players on the tee at every event. Pick a winner to watch the swing that went with the score.</p>
-      </div>
-      <p class="sidenote">Scores and prizes as posted on the tour's results page, September 2 to 21, 2026. Legends on Sept 9 was 36 holes.</p>
-    </div>
+    <h2 id="winners-h">The last six winners, on the tee</h2>
+    <p class="lede">The tour films players on the tee at every event. Pick a winner to watch the swing that went with the score.</p>
 
     <div class="board">
       <div class="stage-col">
         <div class="stage" id="stage">
           <img id="stageImg" src="assets/winners/bina.jpg" width="960" height="540" alt="Carey Bina on the tee at Stoneybrook West, September 21, 2026">
           <video id="stageVid" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
-          <button class="btn btn-light stage-play" id="stagePlay" type="button">Play swing</button>
+          <button class="btn stage-play" id="stagePlay" type="button">Play swing</button>
         </div>
-        <div class="stage-cap" aria-live="polite">
-          <span><strong id="capWho">Carey Bina</strong></span>
-          <span id="capWhat" class="num">69 at Stoneybrook West, Mon Sept 21</span>
-        </div>
+        <p class="stage-cap" aria-live="polite"><strong id="capWho">Carey Bina</strong>, <span id="capWhat" class="num">69 at Stoneybrook West, Mon Sept 21</span></p>
       </div>
 
       <div class="winners-lb">
-        <div class="lb-head" aria-hidden="true"><span>Winner</span><span>Score</span><span>Prize</span></div>
-        <div class="lb" role="group" aria-label="Recent winners">
-          <button class="lb-row num" type="button" aria-pressed="true" data-clip="bina" data-who="Carey Bina" data-what="69 at Stoneybrook West, Mon Sept 21" data-alt="Carey Bina on the tee at Stoneybrook West, September 21, 2026">
-            <span class="wh"><span class="who">Carey Bina</span><span class="where">Stoneybrook West &middot; Sept 21</span></span><span class="sc">69</span><span class="pz">$200</span>
+        <div class="lb num" role="group" aria-label="Recent winners">
+          <div class="lb-head" aria-hidden="true"><span>Winner</span><span>Score</span><span>Prize</span></div>
+          <button class="lb-row" type="button" aria-pressed="true" data-clip="bina" data-who="Carey Bina" data-what="69 at Stoneybrook West, Mon Sept 21" data-alt="Carey Bina on the tee at Stoneybrook West, September 21, 2026">
+            <span class="wh"><span class="who">Carey Bina</span><span class="where">Stoneybrook West, Sept 21</span></span><span class="sc">69</span><span class="pz">$200</span>
           </button>
-          <button class="lb-row num" type="button" aria-pressed="false" data-clip="chon" data-who="Charles Chon" data-what="69 at Bartow Golf Club, Fri Sept 18" data-alt="Charles Chon on the tee at Bartow Golf Club, September 18, 2026">
-            <span class="wh"><span class="who">Charles Chon</span><span class="where">Bartow GC &middot; Sept 18</span></span><span class="sc">69</span><span class="pz">$500</span>
+          <button class="lb-row" type="button" aria-pressed="false" data-clip="chon" data-who="Charles Chon" data-what="69 at Bartow Golf Club, Fri Sept 18" data-alt="Charles Chon on the tee at Bartow Golf Club, September 18, 2026">
+            <span class="wh"><span class="who">Charles Chon</span><span class="where">Bartow GC, Sept 18</span></span><span class="sc">69</span><span class="pz">$500</span>
           </button>
-          <button class="lb-row num" type="button" aria-pressed="false" data-clip="liu" data-who="Yuqi Liu" data-what="69 at Wekiva, Thu Sept 17" data-alt="Yuqi Liu on the tee at Wekiva, September 17, 2026">
-            <span class="wh"><span class="who">Yuqi Liu</span><span class="where">Wekiva &middot; Sept 17</span></span><span class="sc">69</span><span class="pz">$500</span>
+          <button class="lb-row" type="button" aria-pressed="false" data-clip="liu" data-who="Yuqi Liu" data-what="69 at Wekiva, Thu Sept 17" data-alt="Yuqi Liu on the tee at Wekiva, September 17, 2026">
+            <span class="wh"><span class="who">Yuqi Liu</span><span class="where">Wekiva, Sept 17</span></span><span class="sc">69</span><span class="pz">$500</span>
           </button>
-          <button class="lb-row num" type="button" aria-pressed="false" data-clip="couch" data-who="Chris Couch" data-what="138 over 36 holes at Legends, Clermont, Wed Sept 9" data-alt="Chris Couch on the tee at Legends in Clermont, September 9, 2026">
-            <span class="wh"><span class="who">Chris Couch</span><span class="where">Legends, 36 holes &middot; Sept 9</span></span><span class="sc">138</span><span class="pz">$1,000</span>
+          <button class="lb-row" type="button" aria-pressed="false" data-clip="couch" data-who="Chris Couch" data-what="138 over 36 holes at Legends, Clermont, Wed Sept 9" data-alt="Chris Couch on the tee at Legends in Clermont, September 9, 2026">
+            <span class="wh"><span class="who">Chris Couch</span><span class="where">Legends, 36 holes, Sept 9</span></span><span class="sc">138</span><span class="pz">$1,000</span>
           </button>
-          <button class="lb-row num" type="button" aria-pressed="false" data-clip="oppenheim" data-who="Rob Oppenheim" data-what="67 at Stoneybrook West, Fri Sept 4" data-alt="Rob Oppenheim on the tee at Stoneybrook West, September 4, 2026">
-            <span class="wh"><span class="who">Rob Oppenheim</span><span class="where">Stoneybrook West &middot; Sept 4</span></span><span class="sc">67</span><span class="pz">$300</span>
+          <button class="lb-row" type="button" aria-pressed="false" data-clip="oppenheim" data-who="Rob Oppenheim" data-what="67 at Stoneybrook West, Fri Sept 4" data-alt="Rob Oppenheim on the tee at Stoneybrook West, September 4, 2026">
+            <span class="wh"><span class="who">Rob Oppenheim</span><span class="where">Stoneybrook West, Sept 4</span></span><span class="sc">67</span><span class="pz">$300</span>
           </button>
-          <button class="lb-row num" type="button" aria-pressed="false" data-clip="mays" data-who="Michael Mays" data-what="63 at West Orange, Wed Sept 2" data-alt="Michael Mays on the tee at West Orange, September 2, 2026">
-            <span class="wh"><span class="who">Michael Mays</span><span class="where">West Orange &middot; Sept 2</span></span><span class="sc">63</span><span class="pz">$700</span>
+          <button class="lb-row" type="button" aria-pressed="false" data-clip="mays" data-who="Michael Mays" data-what="63 at West Orange, Wed Sept 2" data-alt="Michael Mays on the tee at West Orange, September 2, 2026">
+            <span class="wh"><span class="who">Michael Mays</span><span class="where">West Orange, Sept 2</span></span><span class="sc">63</span><span class="pz">$700</span>
           </button>
         </div>
+        <p class="lb-note">Scores and prizes as posted on the tour's results page.</p>
         <div class="winners-foot">
-          <a class="btn btn-light" href="https://awc.ogatour.org/O_RecentResults.php">Full results</a>
+          <a class="btn btn-ghost" href="https://awc.ogatour.org/O_RecentResults.php">Full results</a>
           <a class="tlink" href="https://awc.ogatour.org/O_VideoSelect.php">Every swing in the video library</a>
         </div>
       </div>
@@ -488,30 +437,25 @@ body.drawer-open .hamburger{visibility:hidden}
 
 <section class="how" id="how" aria-labelledby="how-h">
   <div class="wrap how-grid">
-    <figure class="how-photo" style="margin:0">
-      <img src="assets/legends-clermont-field-2026-09-09.jpg" width="1200" height="675" loading="lazy" alt="Players and carts waiting by the tee at Legends in Clermont while a Moonlight Golf Tour player tees off">
-      <figcaption>On the tee at Legends, Clermont, September 9, 2026.</figcaption>
-    </figure>
     <div>
       <h2 id="how-h">Getting into a field takes two texts and some cash</h2>
       <ol class="steps">
-        <li><span class="n num">01</span><div><h3>Register at least 48 hours out</h3><p>Call or text the tour office at <a href="sms:+17273938531">(727) 393-8531</a> before the 48-hour deadline for the event you want.</p></div></li>
-        <li><span class="n num">02</span><div><h3>Text for your tee time</h3><p>Between 7 and 8pm the night before, text the same number and you'll get your time.</p></div></li>
-        <li><span class="n num">03</span><div><h3>Pay at the course, in cash</h3><p>The entry fee listed for that event, plus a tour membership: $20 for one event, $50 for 30 days, or $150 for the year. Checks are fine once you've played three events.</p></div></li>
+        <li><span class="n num">1</span><div><h3>Register at least 48 hours out</h3><p>Call or text the tour office at <a href="sms:+17273938531">(727) 393-8531</a> before the 48-hour deadline for the event you want.</p></div></li>
+        <li><span class="n num">2</span><div><h3>Text for your tee time</h3><p>Between 7 and 8pm the night before, text the same number and you'll get your time.</p></div></li>
+        <li><span class="n num">3</span><div><h3>Pay at the course, in cash</h3><p>The entry fee listed for that event, plus a tour membership: $20 for one event, $50 for 30 days, or $150 for the year. Checks are fine once you've played three events.</p></div></li>
       </ol>
     </div>
+    <figure class="how-photo" style="margin:0">
+      <img src="assets/legends-clermont-field-2026-09-09.jpg" width="1200" height="675" loading="lazy" alt="Players and carts waiting by the tee at Legends in Clermont while a Moonlight Golf Tour player tees off">
+      <figcaption>Waiting on the tee at Legends, Clermont, September 9, 2026.</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="schedule" id="schedule" aria-labelledby="sched-h">
   <div class="wrap">
-    <div class="sched-head">
-      <div>
-        <h2 id="sched-h">The next five weeks</h2>
-        <p class="lede">Most events are one round at $100. A few days a month are $200, and Legends runs two-round events at $300.</p>
-      </div>
-      <p class="sidenote">Schedule and fees can change. The tour office confirms everything when you register.</p>
-    </div>
+    <h2 id="sched-h">The next five weeks</h2>
+    <p class="lede">Most events are one round at $100. A few days a month are $200, and Legends runs two-round events at $300.</p>
     <table class="sched num">
       <caption>Moonlight Golf Tour events, September 29 to October 29, 2026</caption>
       <thead><tr><th scope="col">Date</th><th scope="col">Course</th><th scope="col" class="fh">Entry</th></tr></thead>
@@ -520,17 +464,18 @@ body.drawer-open .hamburger{visibility:hidden}
         <tr><td class="d">Wed Sept 30, 7:30</td><td class="c">Wekiva</td><td class="f">$100</td></tr>
         <tr><td class="d">Thu Oct 1, 9:00</td><td class="c">Forest Lake</td><td class="f">$100</td></tr>
         <tr><td class="d">Sun Oct 4, 8:00</td><td class="c">Bartow GC</td><td class="f">$100</td></tr>
-        <tr><td class="d">Tue-Wed Oct 6-7, 8:30</td><td class="c">Legends<small>Clermont, two rounds</small></td><td class="f hi">$300</td></tr>
+        <tr><td class="d">Tue-Wed Oct 6-7, 8:30</td><td class="c">Legends<small>Clermont, two rounds</small></td><td class="f">$300</td></tr>
         <tr><td class="d">Tue Oct 13, 9:00</td><td class="c">Stoneybrook West</td><td class="f">$100</td></tr>
-        <tr><td class="d">Thu Oct 15, 7:40</td><td class="c">Wekiva</td><td class="f hi">$200</td></tr>
+        <tr><td class="d">Thu Oct 15, 7:40</td><td class="c">Wekiva</td><td class="f">$200</td></tr>
         <tr><td class="d">Sun Oct 18, 8:00</td><td class="c">Bartow GC</td><td class="f">$100</td></tr>
-        <tr><td class="d">Tue Oct 20, 9:00</td><td class="c">Legends<small>Clermont</small></td><td class="f hi">$200</td></tr>
+        <tr><td class="d">Tue Oct 20, 9:00</td><td class="c">Legends<small>Clermont</small></td><td class="f">$200</td></tr>
         <tr><td class="d">Wed Oct 21, 10:30</td><td class="c">Eagle Dunes</td><td class="f">$100</td></tr>
         <tr><td class="d">Mon Oct 26, 9:00</td><td class="c">Stoneybrook West</td><td class="f">$100</td></tr>
-        <tr><td class="d">Wed Oct 28, 8:00</td><td class="c">West Orange</td><td class="f hi">$200</td></tr>
+        <tr><td class="d">Wed Oct 28, 8:00</td><td class="c">West Orange</td><td class="f">$200</td></tr>
         <tr><td class="d">Thu Oct 29, 8:00</td><td class="c">Wekiva</td><td class="f">$100</td></tr>
       </tbody>
     </table>
+    <p class="sched-note">Schedule and fees can change. The tour office confirms everything when you register.</p>
     <div class="sched-foot">
       <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
       <a class="btn btn-ghost" href="https://awc.ogatour.org/schedules.htm">Full schedule through May 2027</a>
@@ -538,62 +483,51 @@ body.drawer-open .hamburger{visibility:hidden}
   </div>
 </section>
 
-<section class="levels on-dark" id="levels" aria-labelledby="levels-h">
-  <div class="levels-media" aria-hidden="true"><img src="assets/legends-clermont-fairway-2026-09-22.jpg" width="1200" height="675" loading="lazy" alt=""></div>
-  <div class="wrap">
-    <div class="levels-copy">
+<section class="levels" id="levels" aria-labelledby="levels-h">
+  <div class="wrap levels-grid">
+    <figure class="levels-photo" style="margin:0">
+      <img src="assets/legends-clermont-fairway-2026-09-22.jpg" width="1200" height="675" loading="lazy" alt="A Moonlight Golf Tour player setting up over his tee shot at Legends in Clermont">
+      <figcaption>Legends, Clermont, September 22, 2026.</figcaption>
+    </figure>
+    <div>
       <h2 id="levels-h">Play your way up to Levels 2 and 3</h2>
       <p>Above the weekly events, NEXT! runs two higher stages. You move up on scores alone, with no exemptions for anyone. Past Level 2 and 3 winners have been awarded between $2,000 and $15,000.</p>
-      <a class="btn btn-light" href="https://awc.ogatour.org/O_ListLev2_1Day.php">See Levels 2 and 3</a>
+      <a class="btn btn-ghost" href="https://awc.ogatour.org/O_ListLev2_1Day.php">See Levels 2 and 3</a>
     </div>
   </div>
 </section>
 
-<section class="close" aria-labelledby="close-h">
+<section class="close" id="contact" aria-labelledby="close-h">
   <div class="wrap close-grid">
-    <h2 id="close-h">Still deciding?</h2>
-    <div class="qa">
-      <div>
-        <h3>Do I need status or an exemption to play?</h3>
-        <p>No. Virtually anyone may enter. You need to know the Rules of Golf, play by them, and keep proper tournament etiquette. Every player gets the same course setup, and the scores decide the rest.</p>
-      </div>
-      <div>
-        <h3>How do I pay?</h3>
-        <p>Cash at the event. Personal checks are accepted once you've played at least three events. No credit or debit cards. The <a class="tlink" href="https://awc.ogatour.org/contactA.htm">tour FAQ</a> and <a class="tlink" href="https://awc.ogatour.org/PDFgallery.htm">rules and local rules</a> cover the rest.</p>
+    <div>
+      <h2 id="close-h">Still deciding?</h2>
+      <div class="qa">
+        <div>
+          <h3>Do I need status or an exemption to play?</h3>
+          <p>No. Virtually anyone may enter. You need to know the Rules of Golf, play by them, and keep proper tournament etiquette. Every player gets the same course setup, and the scores decide the rest.</p>
+        </div>
+        <div>
+          <h3>How do I pay?</h3>
+          <p>Cash at the event. Personal checks are accepted once you've played at least three events. No credit or debit cards. The <a class="tlink" href="https://awc.ogatour.org/contactA.htm">tour FAQ</a> and <a class="tlink" href="https://awc.ogatour.org/PDFgallery.htm">rules and local rules</a> cover the rest.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="contact" id="contact" aria-labelledby="contact-h">
-  <div class="wrap">
-    <div class="contact-card">
-      <div class="contact-main">
-        <h2 id="contact-h">Call or text the tour office</h2>
-        <a class="big-phone num" href="tel:+17273938531">(727) 393-8531</a>
-        <p>Text or call to register before the 48-hour deadline. For tee times, text between 7 and 8pm the night before you play.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
-          <a class="btn btn-ghost" href="mailto:FrankMagee@OGATOUR.org">Email Frank Magee</a>
-        </div>
+    <div class="contact">
+      <h2>Call or text the tour office</h2>
+      <a class="big-phone num" href="tel:+17273938531">(727) 393-8531</a>
+      <p>Register before the 48-hour deadline. For tee times, text between 7 and 8pm the night before you play.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
+        <a class="btn btn-ghost" href="mailto:FrankMagee@OGATOUR.org">Email Frank Magee</a>
       </div>
-      <div class="contact-side on-dark">
-        <div class="blk">
-          <h3>Moonlight Golf Association, Inc.</h3>
-          <address>P.O. Box 4232<br>Seminole, FL 33775<br><a href="mailto:MMMagee613@hotmail.com">MMMagee613@hotmail.com</a></address>
-        </div>
-        <div class="blk">
-          <h3>NEXT! (Levels 2 and 3)</h3>
-          <address>P.O. Box 4232<br>Seminole, FL 33775<br><a href="mailto:FrankMagee@OGATOUR.org">FrankMagee@OGATOUR.org</a></address>
-        </div>
-      </div>
+      <address><strong>Moonlight Golf Association, Inc.</strong> and <strong>NEXT!</strong><br>P.O. Box 4232, Seminole, FL 33775<br><a href="mailto:MMMagee613@hotmail.com">MMMagee613@hotmail.com</a></address>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer class="site-foot on-dark">
+<footer class="site-foot">
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
@@ -633,31 +567,29 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
 (function(){
   if (window.location.hash) { history.replaceState(null, '', window.location.pathname); }
 
-  /* drawer */
-  var hamburger = document.getElementById('hamburger');
-  var drawer = document.getElementById('navDrawer');
-  var overlay = document.getElementById('navOverlay');
-  var drawerClose = document.getElementById('drawerClose');
-  function openDrawer(){
-    drawer.classList.add('open'); overlay.classList.add('open');
-    document.body.classList.add('drawer-open');
-    drawer.setAttribute('aria-hidden','false');
-    hamburger.setAttribute('aria-expanded','true');
-    drawerClose.focus();
+  /* menu sheet: one button toggles Menu / Close */
+  var btn = document.getElementById('menuBtn');
+  var sheet = document.getElementById('menuSheet');
+  var scrim = document.getElementById('menuScrim');
+  function openMenu(){
+    sheet.classList.add('open'); scrim.classList.add('open');
+    document.body.classList.add('menu-open');
+    sheet.setAttribute('aria-hidden','false');
+    btn.setAttribute('aria-expanded','true'); btn.textContent = 'Close';
   }
-  function closeDrawer(){
-    drawer.classList.remove('open'); overlay.classList.remove('open');
-    document.body.classList.remove('drawer-open');
-    drawer.setAttribute('aria-hidden','true');
-    hamburger.setAttribute('aria-expanded','false');
+  function closeMenu(){
+    sheet.classList.remove('open'); scrim.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    sheet.setAttribute('aria-hidden','true');
+    btn.setAttribute('aria-expanded','false'); btn.textContent = 'Menu';
   }
-  hamburger.addEventListener('click', openDrawer);
-  drawerClose.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeDrawer); });
+  btn.addEventListener('click', function(){ sheet.classList.contains('open') ? closeMenu() : openMenu(); });
+  scrim.addEventListener('click', closeMenu);
+  sheet.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    if (e.key === 'Escape' && sheet.classList.contains('open')) { closeMenu(); btn.focus(); }
   });
+  window.addEventListener('resize', function(){ if (window.innerWidth > 980 && sheet.classList.contains('open')) closeMenu(); });
 
   /* in-page anchors: smooth scroll + hash strip */
   document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(function(link){
