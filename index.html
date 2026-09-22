@@ -123,18 +123,19 @@ a[href^="tel:"],a[href^="sms:"]{white-space:nowrap}
 .menu-top img{height:44px;width:auto;display:block}
 .menu-close{width:44px;height:44px;border:0;background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
 .menu-close svg{width:24px;height:24px}
-.menu-sheet nav{flex:0 0 auto}
-.menu-sheet ul{list-style:none;margin:4px 0 0;padding:0}
+.menu-sheet nav{flex:1 1 auto;display:flex;flex-direction:column;min-height:0}
+.menu-sheet ul{list-style:none;margin:0;padding:0;flex:1 1 auto;display:flex;flex-direction:column}
+.menu-sheet li{flex:1 1 0;display:flex}
 .menu-sheet li+li{border-top:1px solid var(--line)}
-.menu-sheet li a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:6px 0;text-decoration:none}
-.menu-sheet .ml{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.35rem;line-height:1.1;white-space:nowrap}
+.menu-sheet li a{flex:1;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:6px 0;text-decoration:none}
+.menu-sheet .ml{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:clamp(1.35rem,3.4vh,1.75rem);line-height:1.1;white-space:nowrap}
 .menu-sheet .md{font-size:.8rem;color:var(--muted);text-align:right;min-width:0}
 .menu-sheet li a:hover .ml{color:var(--indigo)}
-.menu-next{flex:0 0 auto;margin:14px 0 0;padding:12px 14px;background:var(--indigo);color:#fff;border-radius:var(--r)}
+.menu-next{flex:0 0 auto;margin:12px 0 0;padding:12px 14px;background:var(--indigo);color:#fff;border-radius:var(--r)}
 .menu-next .nl{font-size:.8rem;color:#D5D7EE}
 .menu-next .nc{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.3rem;line-height:1.1;margin:1px 0 2px}
 .menu-next .nm{font-weight:600;font-size:.9rem}
-.menu-foot{flex:0 0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:8px;margin-top:auto;padding-top:14px}
+.menu-foot{flex:0 0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:8px;padding-top:10px}
 .menu-foot .btn{padding:10px 12px;min-width:0}
 .menu-foot small{grid-column:1/-1;color:var(--muted);font-size:.8rem;text-align:center}
 body.menu-open{overflow:hidden;position:fixed;left:0;right:0;width:100%}
