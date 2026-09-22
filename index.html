@@ -94,21 +94,22 @@ main:focus{outline:none}
 .btn-ghost:hover{background:var(--ink);color:#fff}
 a[href^="tel:"],a[href^="sms:"]{white-space:nowrap}
 .tlink{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.next-strip .tlink,.winners-foot .tlink{display:inline-flex;align-items:center;min-height:44px}
 
 /* nav */
 .site-nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);background:#fff;border-bottom:1px solid var(--line);z-index:210}
 .nav-inner{height:100%;display:flex;align-items:center;gap:28px}
-.brand{display:flex;align-items:center;flex:0 0 auto}
+.brand{display:flex;align-items:center;flex:0 0 auto;min-height:44px}
 .brand img{height:50px;width:auto}
 .site-nav nav{flex:1 1 auto}
 .nav-links{display:flex;gap:26px;margin:0 0 0 12px;padding:0;list-style:none}
 .nav-links a{text-decoration:none;font-weight:600;font-size:.97rem;white-space:nowrap;padding:8px 0;border-bottom:2px solid transparent}
 .nav-links a:hover{border-bottom-color:var(--ink)}
 .nav-cta{display:flex;align-items:center;gap:20px}
-.nav-phone{font-weight:700;color:var(--accent);text-decoration:none;white-space:nowrap}
+.nav-phone{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--accent);text-decoration:none;white-space:nowrap}
 .nav-phone:hover{text-decoration:underline}
 .m-actions{display:none;margin-left:auto;align-items:center;gap:6px}
-.m-call{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;background:var(--accent);color:#fff;border-radius:var(--r);font-weight:700;font-size:.92rem;text-decoration:none}
+.m-call{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;background:var(--accent);color:#fff;border-radius:var(--r);font-weight:700;font-size:.92rem;text-decoration:none}
 .m-call:hover{background:var(--accent-dk)}
 .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--ink);border-radius:var(--r);cursor:pointer}
 .menu-btn svg{width:26px;height:26px}
@@ -232,7 +233,7 @@ body.menu-open{overflow:hidden}
 .qa p{color:var(--muted);max-width:38em}
 .contact{background:var(--plate);border:1px solid var(--line);border-radius:var(--r);padding:36px}
 .contact h2{font-size:1.9rem}
-.contact .big-phone{display:inline-block;margin-top:12px;font-family:var(--display);font-stretch:78%;font-weight:800;font-size:clamp(2.4rem,4vw,3.2rem);color:var(--accent);text-decoration:none;line-height:1}
+.contact .big-phone{display:inline-block;margin-top:8px;padding:4px 0;font-family:var(--display);font-stretch:78%;font-weight:800;font-size:clamp(2.4rem,4vw,3.2rem);color:var(--accent);text-decoration:none;line-height:1}
 .contact .big-phone:hover{text-decoration:underline}
 .contact p{margin-top:12px;color:var(--muted)}
 .contact .hero-ctas{margin-top:20px}
@@ -251,8 +252,9 @@ body.menu-open{overflow:hidden}
 .site-foot li a{display:inline-block;padding:10px 0}
 .site-foot a{color:var(--on-dark);text-decoration:none}
 .site-foot a:hover{color:var(--accent-on-dark);text-decoration:underline}
-.site-foot address{font-style:normal;line-height:2.4;font-size:.95rem;overflow-wrap:anywhere}
-.site-foot address a{color:var(--accent-on-dark)}
+.site-foot address{font-style:normal;line-height:1.6;font-size:.95rem;overflow-wrap:anywhere}
+.site-foot address span{display:block;padding:4px 0}
+.site-foot address a{color:var(--accent-on-dark);display:block;padding:12px 0 11px;line-height:1.4}
 .foot-bottom{margin-top:48px;border-top:1px solid rgba(184,186,214,.14);padding:20px 0 max(22px,env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;font-size:.86rem}
 .foot-bottom nav{display:flex;gap:18px;flex-wrap:wrap}
 .foot-bottom nav a{display:inline-block;padding:11px 0}
@@ -459,7 +461,7 @@ body.menu-open{overflow:hidden}
       </ol>
     </div>
     <figure class="how-photo" style="margin:0">
-      <img src="assets/legends-clermont-field-2026-09-09.jpg" width="1200" height="675" loading="lazy" alt="Players and carts waiting by the tee at Legends in Clermont while a Moonlight Golf Tour player tees off">
+      <img src="assets/legends-clermont-field-2026-09-09.jpg" width="1200" height="676" loading="lazy" alt="Players and carts waiting by the tee at Legends in Clermont while a Moonlight Golf Tour player tees off">
       <figcaption>Waiting on the tee at Legends, Clermont, September 9, 2026.</figcaption>
     </figure>
   </div>
@@ -499,7 +501,7 @@ body.menu-open{overflow:hidden}
 <section class="levels" id="levels" aria-labelledby="levels-h">
   <div class="wrap levels-grid">
     <figure class="levels-photo" style="margin:0">
-      <img src="assets/legends-clermont-fairway-2026-09-22.jpg" width="1200" height="675" loading="lazy" alt="A Moonlight Golf Tour player setting up over his tee shot at Legends in Clermont">
+      <img src="assets/legends-clermont-fairway-2026-09-22.jpg" width="1200" height="676" loading="lazy" alt="A Moonlight Golf Tour player setting up over his tee shot at Legends in Clermont">
       <figcaption>Legends, Clermont, September 22, 2026.</figcaption>
     </figure>
     <div>
@@ -560,9 +562,10 @@ body.menu-open{overflow:hidden}
       <div>
         <h3>Tour office</h3>
         <address>
-          <a href="tel:+17273938531">(727) 393-8531</a>, call or text<br>
-          <a href="mailto:FrankMagee@OGATOUR.org">Email the tour office</a><br>
-          P.O. Box 4232, Seminole, FL 33775
+          <a href="tel:+17273938531">(727) 393-8531</a>
+          <span>Call or text</span>
+          <a href="mailto:FrankMagee@OGATOUR.org">Email Frank</a>
+          <span>P.O. Box 4232, Seminole, FL 33775</span>
         </address>
       </div>
     </div>
