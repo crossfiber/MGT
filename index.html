@@ -114,29 +114,32 @@ a[href^="tel:"],a[href^="sms:"]{white-space:nowrap}
 .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--ink);border-radius:var(--r);cursor:pointer}
 .menu-btn svg{width:26px;height:26px}
 
-/* side drawer */
-.menu-scrim{position:fixed;inset:0;background:rgba(21,23,46,.5);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:215}
+/* side drawer: sized to fit the visible phone screen, no inner scrolling */
+.menu-scrim{position:fixed;inset:0;background:rgba(21,23,46,.5);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:215;touch-action:none}
 .menu-scrim.open{opacity:1;visibility:visible}
-.menu-sheet{position:fixed;top:0;right:0;width:min(86vw,360px);height:100dvh;display:flex;flex-direction:column;overflow-y:auto;background:#fff;z-index:220;visibility:hidden;transform:translateX(100%);transition:transform .28s cubic-bezier(.2,.7,.2,1),visibility .28s;padding:max(10px,env(safe-area-inset-top)) 22px max(20px,env(safe-area-inset-bottom));box-shadow:-12px 0 32px rgba(21,23,46,.18)}
+.menu-sheet{position:fixed;top:0;bottom:0;right:0;width:min(86vw,340px);max-width:100%;display:flex;flex-direction:column;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:#fff;z-index:220;visibility:hidden;transform:translateX(100%);transition:transform .28s cubic-bezier(.2,.7,.2,1),visibility .28s;padding:0 20px max(16px,env(safe-area-inset-bottom));box-shadow:-12px 0 32px rgba(21,23,46,.18)}
 .menu-sheet.open{visibility:visible;transform:none}
-.menu-top{display:flex;align-items:center;justify-content:space-between;min-height:50px;border-bottom:1px solid var(--line);margin:0 -22px;padding:0 10px 0 22px}
-.menu-top span{font-weight:700;font-size:.92rem;color:var(--muted)}
+.menu-top{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;min-height:var(--nav-h-sm);padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--line);margin:0 -20px;padding-left:20px;padding-right:8px}
+.menu-top img{height:44px;width:auto;display:block}
 .menu-close{width:44px;height:44px;border:0;background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
 .menu-close svg{width:24px;height:24px}
-.menu-sheet ul{list-style:none;margin:6px 0 0;padding:0}
+.menu-sheet nav{flex:0 0 auto}
+.menu-sheet ul{list-style:none;margin:4px 0 0;padding:0}
 .menu-sheet li+li{border-top:1px solid var(--line)}
-.menu-sheet li a{display:block;padding:13px 0;text-decoration:none}
-.menu-sheet .ml{display:block;font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.55rem;line-height:1.1}
-.menu-sheet .md{display:block;font-size:.84rem;color:var(--muted);margin-top:2px}
+.menu-sheet li a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:6px 0;text-decoration:none}
+.menu-sheet .ml{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.35rem;line-height:1.1;white-space:nowrap}
+.menu-sheet .md{font-size:.8rem;color:var(--muted);text-align:right;min-width:0}
 .menu-sheet li a:hover .ml{color:var(--indigo)}
-.menu-next{margin:16px 0 0;padding:16px;background:var(--indigo);color:#fff;border-radius:var(--r)}
-.menu-next .nl{font-size:.84rem;color:#D5D7EE}
-.menu-next .nc{display:block;font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.6rem;line-height:1.05;margin:2px 0 4px}
-.menu-next .nm{font-weight:600;font-size:.95rem}
-.menu-next .nd{margin-top:6px;font-size:.84rem;color:#D5D7EE}
-.menu-foot{display:grid;gap:10px;margin-top:auto;padding-top:18px}
-.menu-foot small{color:var(--muted);font-size:.84rem;text-align:center}
-body.menu-open{overflow:hidden}
+.menu-next{flex:0 0 auto;margin:14px 0 0;padding:12px 14px;background:var(--indigo);color:#fff;border-radius:var(--r)}
+.menu-next .nl{font-size:.8rem;color:#D5D7EE}
+.menu-next .nc{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.3rem;line-height:1.1;margin:1px 0 2px}
+.menu-next .nm{font-weight:600;font-size:.9rem}
+.menu-foot{flex:0 0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:8px;margin-top:auto;padding-top:14px}
+.menu-foot .btn{padding:10px 12px;min-width:0}
+.menu-foot small{grid-column:1/-1;color:var(--muted);font-size:.8rem;text-align:center}
+body.menu-open{overflow:hidden;position:fixed;left:0;right:0;width:100%}
+html.menu-open{overflow:hidden}
+@media (max-height:600px){.menu-sheet li a{min-height:44px;padding:4px 0}.menu-sheet .ml{font-size:1.2rem}.menu-next{margin-top:10px;padding:10px 12px}.menu-foot{padding-top:10px}.menu-foot small{display:none}}
 
 /* hero */
 .hero{padding:calc(var(--nav-h) + 56px) 0 72px;background:var(--plate)}
@@ -355,7 +358,7 @@ body.menu-open{overflow:hidden}
 
 <div class="menu-scrim" id="menuScrim"></div>
 <div class="menu-sheet" id="menuSheet" aria-hidden="true" role="dialog" aria-label="Menu">
-  <div class="menu-top"><span>Moonlight Golf Tour</span><button class="menu-close" id="menuClose" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div>
+  <div class="menu-top"><img src="assets/moonlight-golf-logo.jpg" alt="Moonlight Golf" width="748" height="307"><button class="menu-close" id="menuClose" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div>
   <nav aria-label="Mobile">
     <ul>
       <li><a href="#winners"><span class="ml">Winners</span><span class="md">Last six, on film</span></a></li>
@@ -369,12 +372,12 @@ body.menu-open{overflow:hidden}
     <p class="nl">Next event</p>
     <p class="nc">Eagle Dunes</p>
     <p class="nm">Tue Sept 29, 8:30am &middot; $100 entry</p>
-    <p class="nd">Registration closes 48 hours before the first tee time.</p>
+    <p class="nl">Register at least 48 hours before</p>
   </div>
   <div class="menu-foot">
-    <a class="btn btn-ghost num" href="tel:+17273938531">Call (727) 393-8531</a>
+    <a class="btn btn-ghost" href="tel:+17273938531">Call</a>
     <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
-    <small>Tee times: text 7 to 8pm the night before</small>
+    <small>(727) 393-8531 &middot; tee times by text 7 to 8pm</small>
   </div>
 </div>
 
@@ -588,15 +591,23 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
   var sheet = document.getElementById('menuSheet');
   var scrim = document.getElementById('menuScrim');
   var closeX = document.getElementById('menuClose');
+  var lockY = 0;
   function openMenu(){
     sheet.classList.add('open'); scrim.classList.add('open');
+    lockY = window.scrollY;
+    document.body.style.top = (-lockY) + 'px';
+    document.documentElement.classList.add('menu-open');
     document.body.classList.add('menu-open');
     sheet.setAttribute('aria-hidden','false');
     btn.setAttribute('aria-expanded','true'); setTimeout(function(){ closeX.focus(); }, 60);
   }
   function closeMenu(){
     sheet.classList.remove('open'); scrim.classList.remove('open');
+    var wasOpen = document.body.classList.contains('menu-open');
+    document.documentElement.classList.remove('menu-open');
     document.body.classList.remove('menu-open');
+    document.body.style.top = '';
+    if (wasOpen) window.scrollTo(0, lockY);
     sheet.setAttribute('aria-hidden','true');
     btn.setAttribute('aria-expanded','false');
   }
