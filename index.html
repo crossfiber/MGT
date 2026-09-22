@@ -107,27 +107,34 @@ a[href^="tel:"],a[href^="sms:"]{white-space:nowrap}
 .nav-cta{display:flex;align-items:center;gap:20px}
 .nav-phone{font-weight:700;color:var(--accent);text-decoration:none;white-space:nowrap}
 .nav-phone:hover{text-decoration:underline}
-.menu-btn{display:none;margin-left:auto;min-width:88px;min-height:44px;padding:0 16px;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:var(--r);font-weight:700;font-size:.95rem;cursor:pointer}
-.menu-btn[aria-expanded="true"]{background:var(--ink);color:#fff}
+.m-actions{display:none;margin-left:auto;align-items:center;gap:6px}
+.m-call{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;background:var(--accent);color:#fff;border-radius:var(--r);font-weight:700;font-size:.92rem;text-decoration:none}
+.m-call:hover{background:var(--accent-dk)}
+.menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--ink);border-radius:var(--r);cursor:pointer}
+.menu-btn svg{width:26px;height:26px}
 
-/* menu sheet: drops from under the bar, page stays visible behind */
-.menu-scrim{position:fixed;inset:var(--nav-h-sm) 0 0 0;background:rgba(21,23,46,.45);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:190}
+/* side drawer */
+.menu-scrim{position:fixed;inset:0;background:rgba(21,23,46,.5);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:215}
 .menu-scrim.open{opacity:1;visibility:visible}
-.menu-sheet{position:fixed;top:var(--nav-h-sm);left:0;right:0;bottom:0;display:flex;flex-direction:column;overflow-y:auto;background:#fff;border-bottom:1px solid var(--line);z-index:200;visibility:hidden;opacity:0;transform:translateY(-12px);transition:opacity .2s,transform .2s,visibility .2s;padding:4px var(--pad) max(20px,env(safe-area-inset-bottom))}
-.menu-sheet.open{visibility:visible;opacity:1;transform:none}
-.menu-sheet ul{list-style:none;margin:0;padding:0}
+.menu-sheet{position:fixed;top:0;right:0;width:min(86vw,360px);height:100dvh;display:flex;flex-direction:column;overflow-y:auto;background:#fff;z-index:220;visibility:hidden;transform:translateX(100%);transition:transform .28s cubic-bezier(.2,.7,.2,1),visibility .28s;padding:max(10px,env(safe-area-inset-top)) 22px max(20px,env(safe-area-inset-bottom));box-shadow:-12px 0 32px rgba(21,23,46,.18)}
+.menu-sheet.open{visibility:visible;transform:none}
+.menu-top{display:flex;align-items:center;justify-content:space-between;min-height:50px;border-bottom:1px solid var(--line);margin:0 -22px;padding:0 10px 0 22px}
+.menu-top span{font-weight:700;font-size:.92rem;color:var(--muted)}
+.menu-close{width:44px;height:44px;border:0;background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.menu-close svg{width:24px;height:24px}
+.menu-sheet ul{list-style:none;margin:6px 0 0;padding:0}
 .menu-sheet li+li{border-top:1px solid var(--line)}
-.menu-sheet li a{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:15px 0;text-decoration:none}
-.menu-sheet .ml{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.75rem;line-height:1.1}
-.menu-sheet .md{font-size:.86rem;color:var(--muted);text-align:right}
+.menu-sheet li a{display:block;padding:13px 0;text-decoration:none}
+.menu-sheet .ml{display:block;font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.55rem;line-height:1.1}
+.menu-sheet .md{display:block;font-size:.84rem;color:var(--muted);margin-top:2px}
 .menu-sheet li a:hover .ml{color:var(--indigo)}
-.menu-next{margin:20px 0 0;padding:18px 18px 16px;background:var(--indigo);color:#fff;border-radius:var(--r)}
-.menu-next .nl{font-size:.86rem;color:#D5D7EE}
-.menu-next .nc{display:block;font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.9rem;line-height:1.05;margin:2px 0 4px}
-.menu-next .nm{font-weight:600}
-.menu-next .nd{margin-top:6px;font-size:.86rem;color:#D5D7EE}
-.menu-foot{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:20px}
-.menu-foot small{grid-column:1/-1;color:var(--muted);font-size:.86rem;text-align:center}
+.menu-next{margin:16px 0 0;padding:16px;background:var(--indigo);color:#fff;border-radius:var(--r)}
+.menu-next .nl{font-size:.84rem;color:#D5D7EE}
+.menu-next .nc{display:block;font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.6rem;line-height:1.05;margin:2px 0 4px}
+.menu-next .nm{font-weight:600;font-size:.95rem}
+.menu-next .nd{margin-top:6px;font-size:.84rem;color:#D5D7EE}
+.menu-foot{display:grid;gap:10px;margin-top:auto;padding-top:18px}
+.menu-foot small{color:var(--muted);font-size:.84rem;text-align:center}
 body.menu-open{overflow:hidden}
 
 /* hero */
@@ -140,8 +147,9 @@ body.menu-open{overflow:hidden}
 .hero-record b{color:var(--ink)}
 .hero-media{margin:0}
 .hero-media img{width:100%;height:auto;aspect-ratio:16/9}
-.next-strip{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:14px 18px;background:var(--field);border-radius:0 0 var(--r) var(--r)}
-.next-strip .lbl{font-size:.9rem;color:var(--muted)}
+.next-strip{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:16px 20px;background:var(--indigo);color:#fff;border-radius:0 0 var(--r) var(--r)}
+.next-strip .lbl{font-size:.9rem;color:#D5D7EE}
+.next-strip .tlink{color:#fff;text-decoration-color:var(--accent-on-dark);text-decoration-thickness:2px}
 .next-strip .crs{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.3rem}
 .next-strip .meta{font-weight:600}
 .next-strip .tlink{margin-left:auto;white-space:nowrap}
@@ -263,7 +271,7 @@ body.menu-open{overflow:hidden}
   .site-nav{height:var(--nav-h-sm)}
   .brand img{height:40px}
   .nav-links,.nav-cta{display:none}
-  .menu-btn{display:block}
+  .m-actions{display:flex}
   .hero{padding:calc(var(--nav-h-sm) + 28px) 0 56px}
   .hero-grid,.board,.how-grid,.levels-grid,.close-grid{grid-template-columns:minmax(0,1fr);gap:32px}
   .stage-col{position:static}
@@ -280,7 +288,8 @@ body.menu-open{overflow:hidden}
   .hero-ctas .btn{flex:1 1 100%}
   .hero-record{margin-top:20px;font-size:.9rem}
   .hero-media{margin:0 calc(var(--pad) * -1)}
-  .next-strip{border-radius:0;padding:14px var(--pad)}
+  .next-strip{border-radius:0;padding:16px var(--pad) 18px}
+  .hero{padding-bottom:0}
   .next-strip .tlink{margin-left:0}
   .winners,.how,.schedule,.levels{padding:64px 0}
   .board{margin-top:28px;gap:20px}
@@ -335,12 +344,16 @@ body.menu-open{overflow:hidden}
       <a class="nav-phone num" href="tel:+17273938531">(727) 393-8531</a>
       <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
     </div>
-    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuSheet">Menu</button>
+    <div class="m-actions">
+      <a class="m-call" href="tel:+17273938531" aria-label="Call the tour office, (727) 393-8531">Call</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuSheet" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    </div>
   </div>
 </header>
 
 <div class="menu-scrim" id="menuScrim"></div>
-<div class="menu-sheet" id="menuSheet" aria-hidden="true">
+<div class="menu-sheet" id="menuSheet" aria-hidden="true" role="dialog" aria-label="Menu">
+  <div class="menu-top"><span>Moonlight Golf Tour</span><button class="menu-close" id="menuClose" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div>
   <nav aria-label="Mobile">
     <ul>
       <li><a href="#winners"><span class="ml">Winners</span><span class="md">Last six, on film</span></a></li>
@@ -357,7 +370,7 @@ body.menu-open{overflow:hidden}
     <p class="nd">Registration closes 48 hours before the first tee time.</p>
   </div>
   <div class="menu-foot">
-    <a class="btn btn-ghost num" href="tel:+17273938531">Call</a>
+    <a class="btn btn-ghost num" href="tel:+17273938531">Call (727) 393-8531</a>
     <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
     <small>Tee times: text 7 to 8pm the night before</small>
   </div>
@@ -409,8 +422,8 @@ body.menu-open{overflow:hidden}
           <button class="lb-row" type="button" aria-pressed="true" data-clip="bina" data-who="Carey Bina" data-what="69 at Stoneybrook West, Mon Sept 21" data-alt="Carey Bina on the tee at Stoneybrook West, September 21, 2026">
             <span class="wh"><span class="who">Carey Bina</span><span class="where">Stoneybrook West, Sept 21</span></span><span class="sc">69</span><span class="pz">$200</span>
           </button>
-          <button class="lb-row" type="button" aria-pressed="false" data-clip="chon" data-who="Charles Chon" data-what="69 at Bartow Golf Club, Fri Sept 18" data-alt="Charles Chon on the tee at Bartow Golf Club, September 18, 2026">
-            <span class="wh"><span class="who">Charles Chon</span><span class="where">Bartow GC, Sept 18</span></span><span class="sc">69</span><span class="pz">$500</span>
+          <button class="lb-row" type="button" aria-pressed="false" data-clip="chon" data-who="Charles Chong" data-what="69 at Bartow Golf Club, Fri Sept 18" data-alt="Charles Chong on the tee at Bartow Golf Club, September 18, 2026">
+            <span class="wh"><span class="who">Charles Chong</span><span class="where">Bartow GC, Sept 18</span></span><span class="sc">69</span><span class="pz">$500</span>
           </button>
           <button class="lb-row" type="button" aria-pressed="false" data-clip="liu" data-who="Yuqi Liu" data-what="69 at Wekiva, Thu Sept 17" data-alt="Yuqi Liu on the tee at Wekiva, September 17, 2026">
             <span class="wh"><span class="who">Yuqi Liu</span><span class="where">Wekiva, Sept 17</span></span><span class="sc">69</span><span class="pz">$500</span>
@@ -418,8 +431,8 @@ body.menu-open{overflow:hidden}
           <button class="lb-row" type="button" aria-pressed="false" data-clip="couch" data-who="Chris Couch" data-what="138 over 36 holes at Legends, Clermont, Wed Sept 9" data-alt="Chris Couch on the tee at Legends in Clermont, September 9, 2026">
             <span class="wh"><span class="who">Chris Couch</span><span class="where">Legends, 36 holes, Sept 9</span></span><span class="sc">138</span><span class="pz">$1,000</span>
           </button>
-          <button class="lb-row" type="button" aria-pressed="false" data-clip="oppenheim" data-who="Rob Oppenheim" data-what="67 at Stoneybrook West, Fri Sept 4" data-alt="Rob Oppenheim on the tee at Stoneybrook West, September 4, 2026">
-            <span class="wh"><span class="who">Rob Oppenheim</span><span class="where">Stoneybrook West, Sept 4</span></span><span class="sc">67</span><span class="pz">$300</span>
+          <button class="lb-row" type="button" aria-pressed="false" data-clip="oppenheim" data-who="Robert Oppenheimer" data-what="67 at Stoneybrook West, Fri Sept 4" data-alt="Robert Oppenheimer on the tee at Stoneybrook West, September 4, 2026">
+            <span class="wh"><span class="who">Robert Oppenheimer</span><span class="where">Stoneybrook West, Sept 4</span></span><span class="sc">67</span><span class="pz">$300</span>
           </button>
           <button class="lb-row" type="button" aria-pressed="false" data-clip="mays" data-who="Michael Mays" data-what="63 at West Orange, Wed Sept 2" data-alt="Michael Mays on the tee at West Orange, September 2, 2026">
             <span class="wh"><span class="who">Michael Mays</span><span class="where">West Orange, Sept 2</span></span><span class="sc">63</span><span class="pz">$700</span>
@@ -571,20 +584,22 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
   var btn = document.getElementById('menuBtn');
   var sheet = document.getElementById('menuSheet');
   var scrim = document.getElementById('menuScrim');
+  var closeX = document.getElementById('menuClose');
   function openMenu(){
     sheet.classList.add('open'); scrim.classList.add('open');
     document.body.classList.add('menu-open');
     sheet.setAttribute('aria-hidden','false');
-    btn.setAttribute('aria-expanded','true'); btn.textContent = 'Close';
+    btn.setAttribute('aria-expanded','true'); setTimeout(function(){ closeX.focus(); }, 60);
   }
   function closeMenu(){
     sheet.classList.remove('open'); scrim.classList.remove('open');
     document.body.classList.remove('menu-open');
     sheet.setAttribute('aria-hidden','true');
-    btn.setAttribute('aria-expanded','false'); btn.textContent = 'Menu';
+    btn.setAttribute('aria-expanded','false');
   }
   btn.addEventListener('click', function(){ sheet.classList.contains('open') ? closeMenu() : openMenu(); });
   scrim.addEventListener('click', closeMenu);
+  closeX.addEventListener('click', function(){ closeMenu(); btn.focus(); });
   sheet.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape' && sheet.classList.contains('open')) { closeMenu(); btn.focus(); }
