@@ -70,10 +70,11 @@ body{margin:0;background:var(--plate);color:var(--ink);font-family:var(--body);f
 img,video{display:block;max-width:100%}
 button{font-family:inherit}
 a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-stretch:80%;font-weight:800;line-height:1.02;letter-spacing:0;margin:0}
-p{margin:0}
+h1,h2,h3{text-wrap:balance;font-family:var(--display);font-stretch:80%;font-weight:800;line-height:1.02;letter-spacing:0;margin:0}
+p{margin:0;text-wrap:pretty}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
-.num{font-variant-numeric:tabular-nums}
+/* tabular figures only where numbers line up in columns */
+.lb-row .sc,.lb-row .pz,.sched .f{font-variant-numeric:tabular-nums}
 
 /* compliance */
 .skip-link{position:absolute;left:-9999px;top:0;z-index:9999;background:var(--night);color:#fff;padding:12px 18px;font-weight:700;text-decoration:none}
@@ -90,7 +91,7 @@ main:focus{outline:none}
 .btn-ghost:hover{background:var(--ink);color:#fff}
 a[href^="tel:"],a[href^="sms:"]{white-space:nowrap}
 .tlink{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px}
-.next-strip .tlink,.winners-foot .tlink{display:inline-flex;align-items:center;min-height:44px}
+.winners-foot .tlink{display:inline-flex;align-items:center;min-height:44px}
 
 /* nav */
 .site-nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);background:#fff;border-bottom:1px solid var(--line);z-index:210}
@@ -148,13 +149,14 @@ html.menu-open{overflow:hidden}
 .hero-record b{color:var(--ink)}
 .hero-media{margin:0}
 .hero-media img{width:100%;height:auto;aspect-ratio:16/9}
-.next-strip{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:16px 20px;background:var(--indigo);color:#fff;border-radius:0 0 var(--r) var(--r)}
-.next-strip .lbl{font-size:.9rem;color:#D5D7EE}
-.next-strip .tlink{color:#fff;text-decoration-color:var(--accent-on-dark);text-decoration-thickness:2px}
-.next-strip .crs{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.3rem}
-.next-strip .meta{font-weight:600}
-.next-strip .tlink{margin-left:auto;white-space:nowrap}
-.next-strip .meta{white-space:nowrap}
+.next-strip{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;background:var(--indigo);color:#fff;border-radius:0 0 var(--r) var(--r)}
+.next-strip .ns-info{min-width:0}
+.next-strip .lbl{display:block;font-size:.86rem;color:#D5D7EE;line-height:1.3}
+.next-strip .crs{display:block;font-family:var(--display);font-stretch:80%;font-weight:800;font-size:1.45rem;line-height:1.15}
+.next-strip .meta{display:block;font-weight:600;line-height:1.4;white-space:nowrap}
+@media (max-width:640px){.next-strip .meta{font-size:.9rem}.next-strip .ns-btn{padding:10px 14px}}
+.next-strip .ns-btn{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;background:#fff;color:var(--ink);border-radius:var(--r);font-weight:700;text-decoration:none;white-space:nowrap}
+.next-strip .ns-btn:hover{background:var(--tint)}
 
 /* winners board: a real leaderboard, light */
 .winners{background:var(--field);padding:96px 0}
@@ -295,7 +297,6 @@ html.menu-open{overflow:hidden}
   .hero-media{margin:0 calc(var(--pad) * -1)}
   .next-strip{border-radius:0;padding:16px var(--pad) 18px}
   .hero{padding-bottom:0}
-  .next-strip .tlink{margin-left:0}
   .winners,.how,.schedule,.levels{padding:64px 0}
   .board{margin-top:28px;gap:20px}
   .stage-col{margin:0 calc(var(--pad) * -1)}
@@ -346,7 +347,7 @@ html.menu-open{overflow:hidden}
       </ul>
     </nav>
     <div class="nav-cta">
-      <a class="nav-phone num" href="tel:+17273938531">(727) 393-8531</a>
+      <a class="nav-phone" href="tel:+17273938531">(727) 393-8531</a>
       <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
     </div>
     <div class="m-actions">
@@ -368,7 +369,7 @@ html.menu-open{overflow:hidden}
       <li><a href="https://awc.ogatour.org/O_RecentResults.php"><span class="ml">Full results</span><span class="md">On OGATOUR.org</span></a></li>
     </ul>
   </nav>
-  <div class="menu-next num">
+  <div class="menu-next">
     <p class="nl">Next event</p>
     <p class="nc">Eagle Dunes</p>
     <p class="nm">Tue Sept 29, 8:30am &middot; $100 entry</p>
@@ -392,15 +393,18 @@ html.menu-open{overflow:hidden}
         <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
         <a class="btn btn-ghost" href="#schedule">See the schedule</a>
       </div>
-      <p class="hero-record num">So far in 2026: <b>65 events</b>, <b>882 starts</b>, and players from at least 21 countries, counted from the tour's own results.</p>
+      <p class="hero-record">So far in 2026: <b>65 events</b>, <b>882 starts</b>, and players from at least 21 countries, counted from the tour's own results.</p>
     </div>
     <figure class="hero-media">
       <img src="assets/legends-clermont-tee-2026-09-09.jpg" width="1600" height="900" fetchpriority="high" alt="A Moonlight Golf Tour player holding his finish on the tee at Legends in Clermont, the fairway running down toward the lake">
-      <div class="next-strip num">
-        <span class="lbl">Next event</span>
-        <span class="crs">Eagle Dunes</span>
-        <span class="meta">Tue Sept 29, 8:30am, $100</span>
-        <a class="tlink" href="sms:+17273938531">Text to enter</a>
+      <div class="next-strip">
+        <div class="ns-info">
+          <span class="lbl">Next event</span>
+          <span class="crs">Eagle Dunes</span>
+          <span class="meta">Tue Sept 29, 8:30am</span>
+          <span class="meta">$100 entry</span>
+        </div>
+        <a class="ns-btn" href="sms:+17273938531">Text to enter</a>
       </div>
     </figure>
   </div>
@@ -418,11 +422,11 @@ html.menu-open{overflow:hidden}
           <video id="stageVid" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
           <button class="btn stage-play" id="stagePlay" type="button">Play swing</button>
         </div>
-        <p class="stage-cap" aria-live="polite"><strong id="capWho">Carey Bina</strong>, <span id="capWhat" class="num">69 at Stoneybrook West, Mon Sept 21</span></p>
+        <p class="stage-cap" aria-live="polite"><strong id="capWho">Carey Bina</strong>, <span id="capWhat">69 at Stoneybrook West, Mon Sept 21</span></p>
       </div>
 
       <div class="winners-lb">
-        <div class="lb num" role="group" aria-label="Recent winners">
+        <div class="lb" role="group" aria-label="Recent winners">
           <div class="lb-head" aria-hidden="true"><span>Winner</span><span>Score</span><span>Prize</span></div>
           <button class="lb-row" type="button" aria-pressed="true" data-clip="bina" data-who="Carey Bina" data-what="69 at Stoneybrook West, Mon Sept 21" data-alt="Carey Bina on the tee at Stoneybrook West, September 21, 2026">
             <span class="wh"><span class="who">Carey Bina</span><span class="where">Stoneybrook West, Sept 21</span></span><span class="sc">69</span><span class="pz">$200</span>
@@ -458,9 +462,9 @@ html.menu-open{overflow:hidden}
     <div>
       <h2 id="how-h">Getting into a field takes two texts and some cash</h2>
       <ol class="steps">
-        <li><span class="n num">1</span><div><h3>Register at least 48 hours out</h3><p>Call or text the tour office at <a href="sms:+17273938531">(727) 393-8531</a> before the 48-hour deadline for the event you want.</p></div></li>
-        <li><span class="n num">2</span><div><h3>Text for your tee time</h3><p>Between 7 and 8pm the night before, text the same number and you'll get your time.</p></div></li>
-        <li><span class="n num">3</span><div><h3>Pay at the course, in cash</h3><p>The entry fee listed for that event, plus a tour membership: $20 for one event, $50 for 30 days, or $150 for the year. Checks are fine once you've played three events.</p></div></li>
+        <li><span class="n">1</span><div><h3>Register at least 48 hours out</h3><p>Call or text the tour office at <a href="sms:+17273938531">(727) 393-8531</a> before the 48-hour deadline for the event you want.</p></div></li>
+        <li><span class="n">2</span><div><h3>Text for your tee time</h3><p>Between 7 and 8pm the night before, text the same number and you'll get your time.</p></div></li>
+        <li><span class="n">3</span><div><h3>Pay at the course, in cash</h3><p>The entry fee listed for that event, plus a tour membership: $20 for one event, $50 for 30 days, or $150 for the year. Checks are fine once you've played three events.</p></div></li>
       </ol>
     </div>
     <figure class="how-photo" style="margin:0">
@@ -474,7 +478,7 @@ html.menu-open{overflow:hidden}
   <div class="wrap">
     <h2 id="sched-h">The next five weeks</h2>
     <p class="lede">Most events are one round at $100. A few days a month are $200, and Legends runs two-round events at $300.</p>
-    <table class="sched num">
+    <table class="sched">
       <caption>Moonlight Golf Tour events, September 29 to October 29, 2026</caption>
       <thead><tr><th scope="col">Date</th><th scope="col">Course</th><th scope="col" class="fh">Entry</th></tr></thead>
       <tbody>
@@ -532,7 +536,7 @@ html.menu-open{overflow:hidden}
     </div>
     <div class="contact">
       <h2>Call or text the tour office</h2>
-      <a class="big-phone num" href="tel:+17273938531">(727) 393-8531</a>
+      <a class="big-phone" href="tel:+17273938531">(727) 393-8531</a>
       <p>Register before the 48-hour deadline. For tee times, text between 7 and 8pm the night before you play.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="sms:+17273938531">Text to register</a>
