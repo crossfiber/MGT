@@ -191,9 +191,12 @@ html.menu-open{overflow:hidden}
 
 /* how to play */
 .how{padding:104px 0;background:var(--plate)}
-.how-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:center}
+.how-head{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:end}
+.how-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:center;margin-top:40px}
 .how h2{font-size:clamp(2.2rem,3.6vw,3.2rem)}
-.steps{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:24px}
+.how h2 span{display:block}
+.how-lede{font-size:1.08rem;color:var(--muted);max-width:36em}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:24px}
 .steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px}
 .steps .n{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:2.2rem;line-height:.95;color:var(--indigo)}
 .steps h3{font-family:var(--body);font-weight:700;font-size:1.1rem;line-height:1.35;margin-bottom:4px}
@@ -280,6 +283,8 @@ html.menu-open{overflow:hidden}
   .nav-links,.nav-cta{display:none}
   .m-actions{display:flex}
   .hero{padding:calc(var(--nav-h-sm) + 28px) 0 56px}
+  .how-head{grid-template-columns:minmax(0,1fr);gap:14px}
+  .how-grid{margin-top:28px}
   .hero-grid,.board,.how-grid,.levels-grid,.close-grid{grid-template-columns:minmax(0,1fr);gap:32px}
   .stage-col{position:static}
   .how-photo,.levels-photo{order:2}
@@ -363,7 +368,7 @@ html.menu-open{overflow:hidden}
   <nav aria-label="Mobile">
     <ul>
       <li><a href="#winners"><span class="ml">Winners</span><span class="md">Last six, on film</span></a></li>
-      <li><a href="#how"><span class="ml">How to play</span><span class="md">Two texts and cash</span></a></li>
+      <li><a href="#how"><span class="ml">How to play</span><span class="md">No status needed</span></a></li>
       <li><a href="#schedule"><span class="ml">Schedule</span><span class="md">Sept 29 to Oct 29</span></a></li>
       <li><a href="#levels"><span class="ml">Levels 2 &amp; 3</span><span class="md">NEXT! stages</span></a></li>
       <li><a href="https://awc.ogatour.org/O_RecentResults.php"><span class="ml">Full results</span><span class="md">On OGATOUR.org</span></a></li>
@@ -458,9 +463,13 @@ html.menu-open{overflow:hidden}
 </section>
 
 <section class="how" id="how" aria-labelledby="how-h">
-  <div class="wrap how-grid">
+  <div class="wrap">
+    <div class="how-head">
+      <h2 id="how-h"><span>No status.</span> <span>No exemptions.</span> <span>No Q-school.</span></h2>
+      <p class="how-lede">To get a start on most tours you have to earn status, win a qualifier or pay thousands for Q-school first. Here, anyone who can play by the Rules of Golf gets in, and the scorecard decides the rest.</p>
+    </div>
+    <div class="how-grid">
     <div>
-      <h2 id="how-h">Getting into a field takes two texts and some cash</h2>
       <ol class="steps">
         <li><span class="n">1</span><div><h3>Register at least 48 hours out</h3><p>Call or text the tour office at <a href="sms:+17273938531">(727) 393-8531</a> before the 48-hour deadline for the event you want.</p></div></li>
         <li><span class="n">2</span><div><h3>Text for your tee time</h3><p>Between 7 and 8pm the night before, text the same number and you'll get your time.</p></div></li>
@@ -471,6 +480,7 @@ html.menu-open{overflow:hidden}
       <img src="assets/legends-clermont-field-2026-09-09.jpg" width="1200" height="676" loading="lazy" alt="Players and carts waiting by the tee at Legends in Clermont while a Moonlight Golf Tour player tees off">
       <figcaption>Waiting on the tee at Legends, Clermont, September 9, 2026.</figcaption>
     </figure>
+    </div>
   </div>
 </section>
 
@@ -513,7 +523,7 @@ html.menu-open{overflow:hidden}
     </figure>
     <div>
       <h2 id="levels-h">Play your way up to Levels 2 and 3</h2>
-      <p>Above the regular events, NEXT! runs two higher stages. You move up on scores alone, with no exemptions for anyone. Past Level 2 and 3 winners have been awarded between $2,000 and $15,000.</p>
+      <p>Above the regular events, NEXT! runs two higher stages. You move up on scores alone. Past Level 2 and 3 winners have been awarded between $2,000 and $15,000.</p>
       <a class="btn btn-ghost" href="https://awc.ogatour.org/O_ListLev2_1Day.php">See Levels 2 and 3</a>
     </div>
   </div>
